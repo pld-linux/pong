@@ -110,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS NEWS README TODO
 %attr(755,root,root) %{_bindir}/pong-gconf-schema-export*
 %{_libdir}/*.so
-%attr(755,root,root) %{_libdir}/*.la
+%{_libdir}/*.la
 %attr(755,root,root) %{_libdir}/*.sh
 %{_aclocaldir}/*.m4
 %{_includedir}/pong-1
