@@ -8,15 +8,14 @@ Group:		X11/Libraries
 Source0:	http://ftp.5z.com/pub/pong/%{name}-%{version}.tar.gz
 # Source0-md5:	6d794f21b5e6d09eb438f432725cb3d4
 URL:		http://www.gnome.org/
-BuildRequires:	GConf >= 0.6.0
-BuildRequires:	bonobo >= 0.36
-BuildRequires:	gdk-pixbuf >= 0.7.0
+BuildRequires:	GConf-devel >= 0.6.0
+BuildRequires:	bonobo-devel >= 0.36
+BuildRequires:	gdk-pixbuf-gnome-devel >= 0.7.0
 BuildRequires:	gob >= 1.0.7
-BuildRequires:	libglade
-BuildRequires:	libxml
-BuildRequires:	oaf >= 0.6.0
+BuildRequires:	libglade-gnome-devel
+BuildRequires:	libxml-devel
+BuildRequires:	oaf-devel >= 0.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 PonG is a library and a GUI tool for creating GNOME dialog boxes from
@@ -74,20 +73,24 @@ sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
 mv -f configure.in.tmp configure.in
 #%%{__libtoolize}
 #xml-i18n-toolize --copy --force
-#aclocal -I intl
-#autoconf
+#%{__aclocal} -I intl
+#%{__autoconf}
 %configure2_13
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_aclocaldir},%{_applnkdir}/Development}
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
 
-mv $RPM_BUILD_ROOT%{_datadir}/aclocal/* $RPM_BUILD_ROOT%{_aclocaldir}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
 install pong-edit/pong-edit.desktop $RPM_BUILD_ROOT%{_applnkdir}/Development
 
-%find_lang %{name}
+%find_lang %{name} --with-gnome
+
+mv pong-tool/ChangeLog ChangeLog.pong-tool
+mv pong/ChangeLog ChangeLog.pong
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -97,26 +100,24 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc pong-tool/ChangeLog pong/ChangeLog
+%doc AUTHORS ChangeLog* NEWS README TODO
 %attr(755,root,root) %{_bindir}/pong-tool*
-%attr(755,root,root) %{_libdir}/*.so.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %{_datadir}/idl/pong-interface.idl
-%{_datadir}/gnome/help/*
 %{_datadir}/omf/*
 
 %files devel
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README TODO
 %attr(755,root,root) %{_bindir}/pong-gconf-schema-export*
-%{_libdir}/*.so
-%{_libdir}/*.la
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/*.sh
 %{_aclocaldir}/*.m4
 %{_includedir}/pong-1
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/lib*.a
 
 %files edit
 %defattr(644,root,root,755)
