@@ -16,8 +16,6 @@ BuildRequires:	libxml
 BuildRequires:	oaf >= 0.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 PonG is a library and a GUI tool for creating GNOME dialog boxes from
