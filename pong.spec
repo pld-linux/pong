@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://ftp.5z.com/pub/pong/%{name}-%{version}.tar.gz
+# Source0-md5:	6d794f21b5e6d09eb438f432725cb3d4
 URL:		http://www.gnome.org/
 BuildRequires:	GConf >= 0.6.0
 BuildRequires:	bonobo >= 0.36
