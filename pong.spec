@@ -2,7 +2,7 @@ Summary:	A library for creating configuration dialogs
 Summary(pl):	Biblioteka do tworzenia dialogów konfiguracyjnych
 Name:		pong
 Version:	1.0.2
-Release:	0.4
+Release:	0.5
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://ftp.5z.com/pub/pong/%{name}-%{version}.tar.gz
@@ -68,7 +68,11 @@ mv -f configure.in.tmp configure.in
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_aclocaldir},%{_applnkdir}/Development}
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
+
+mv $RPM_BUILD_ROOT%{_datadir}/aclocal/* $RPM_BUILD_ROOT%{_aclocaldir}
+install pong-edit/pong-edit.desktop $RPM_BUILD_ROOT%{_applnkdir}/Development
 
 %clean
 rm -rf $RPM_BUILD_ROOT
