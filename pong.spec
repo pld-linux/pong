@@ -2,7 +2,7 @@ Summary:	A library for creating configuration dialogs
 Summary(pl):	Biblioteka do tworzenia dialogów konfiguracyjnych
 Name:		pong
 Version:	1.0.2
-Release:	0.2
+Release:	0.3
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://ftp.5z.com/pub/pong/%{name}-%{version}.tar.gz
@@ -80,7 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root} %{_bindir}/pong-tool*
-%{_libdir}/*.so.*
+%attr(755,root,root} %{_libdir}/*.so.*
 %{_datadir}/idl/pong-interface.idl
 %{_datadir}/locale/*/*/*
 %{_datadir}/gnome/help/*
@@ -88,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root} %{_bindir}/pong-gconf-schema-export*
+%attr(755,root,root) %{_bindir}/pong-gconf-schema-export*
 %{_libdir}/*.so
 %{_libdir}/*.la
 %{_libdir}/*.sh
@@ -101,7 +101,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files edit
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/pong-edit-1
-%attr(755,root,root) %{_bindir}/pong-edit
+%attr(755,root,root) %{_bindir}/pong-edit*
 %{_applnkdir}/Development/pong-edit.desktop
-%{_datadir}/pong-1/pong-edit.glade
+%{_datadir}/pong-1/*.glade
