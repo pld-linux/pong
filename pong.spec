@@ -2,7 +2,7 @@ Summary:	A library for creating configuration dialogs
 Summary(pl):	Biblioteka do tworzenia dialogów konfiguracyjnych
 Name:		pong
 Version:	1.0.2
-Release:	0.5
+Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://ftp.5z.com/pub/pong/%{name}-%{version}.tar.gz
