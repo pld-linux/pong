@@ -9,6 +9,7 @@ Source0:	http://ftp.5z.com/pub/pong/%{name}-%{version}.tar.gz
 # Source0-md5:	6d794f21b5e6d09eb438f432725cb3d4
 URL:		http://www.gnome.org/
 BuildRequires:	GConf-devel >= 0.6.0
+BuildRequires:	automake
 BuildRequires:	bonobo-devel >= 0.36
 BuildRequires:	gdk-pixbuf-gnome-devel >= 0.7.0
 BuildRequires:	gob >= 1.0.7
