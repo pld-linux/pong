@@ -14,7 +14,6 @@ BuildRequires:	gob >= 1.0.7
 BuildRequires:	libglade
 BuildRequires:	libxml
 BuildRequires:	oaf >= 0.6.0
-BuildRequires:	sed
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -26,32 +25,47 @@ an XML description. The XML describes the widgets and the gconf keys
 to use, and PonG takes care of the rest. It can optionally use
 libglade and/or bonobo for the widgets as well.
 
+%description -l pl
+PonG to biblioteka i narzêdzie z graficznym interfejsem s³u¿±ce do
+tworzenia okienek dialogowych GNOME z opisu w XML. XML opisuje widgety
+i klucze gconf jakie maj± byæ u¿ywane, a PonG zajmuje siê ca³± reszt±.
+Opcjonalnie mo¿e u¿ywaæ tak¿e libglade i/lub bonobo do widgetów.
+
 %package devel
-Summary:	pong
+Summary:	PonG header files
+Summary(pl):	Pliki nag³ówkowe PonG
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
 
 %description devel
-Pong developement files.
+PonG developement files.
+
+%description devel -l pl
+Pliki nag³ówkowe PonG.
 
 %package static
-Summary:	A library for creating configuration dialogs
-Summary(pl):	Biblioteka do tworzenia dialogów konfiguracyjnych
+Summary:	Static PonG library
+Summary(pl):	Statyczna biblioteka PonG
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}
 
 %description static
-Static pong library.
+Static PonG library.
 
 %description static -l pl
-Statyczna biblioteka pong.
+Statyczna biblioteka PonG.
 
 %package edit
-Summary:	A library for creating configuration dialogs
+Summary:	Dialog box editor
+Summary(pl):	Edytor okien dialogowych
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
 
 %description edit
+Dialog box editor.
+
+%description edit -l pl
+Edytor okien dialogowych.
 
 %prep
 %setup -q
@@ -74,20 +88,20 @@ install -d $RPM_BUILD_ROOT{%{_aclocaldir},%{_applnkdir}/Development}
 mv $RPM_BUILD_ROOT%{_datadir}/aclocal/* $RPM_BUILD_ROOT%{_aclocaldir}
 install pong-edit/pong-edit.desktop $RPM_BUILD_ROOT%{_applnkdir}/Development
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-
+%post	-p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc pong-tool/ChangeLog pong/ChangeLog
 %attr(755,root,root) %{_bindir}/pong-tool*
 %attr(755,root,root) %{_libdir}/*.so.*
 %{_datadir}/idl/pong-interface.idl
-%{_datadir}/locale/*/*/*
 %{_datadir}/gnome/help/*
 %{_datadir}/omf/*
 
@@ -96,10 +110,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS NEWS README TODO
 %attr(755,root,root) %{_bindir}/pong-gconf-schema-export*
 %{_libdir}/*.so
-%{_libdir}/*.la
-%{_libdir}/*.sh
+%attr(755,root,root) %{_libdir}/*.la
+%attr(755,root,root) %{_libdir}/*.sh
 %{_aclocaldir}/*.m4
-%{_includedir}/pong-1/*/*.h
+%{_includedir}/pong-1
 
 %files static
 %defattr(644,root,root,755)
@@ -110,4 +124,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc pong-edit/ChangeLog
 %attr(755,root,root) %{_bindir}/pong-edit*
 %{_applnkdir}/Development/pong-edit.desktop
+%dir %{_datadir}/pong-1
 %{_datadir}/pong-1/*.glade
