@@ -34,7 +34,7 @@ Opcjonalnie mo¿e u¿ywaæ tak¿e libglade i/lub bonobo do widgetów.
 Summary:	PonG header files
 Summary(pl):	Pliki nag³ówkowe PonG
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 PonG developement files.
@@ -46,7 +46,7 @@ Pliki nag³ówkowe PonG.
 Summary:	Static PonG library
 Summary(pl):	Statyczna biblioteka PonG
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static PonG library.
@@ -58,7 +58,7 @@ Statyczna biblioteka PonG.
 Summary:	Dialog box editor
 Summary(pl):	Edytor okien dialogowych
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description edit
 Dialog box editor.
