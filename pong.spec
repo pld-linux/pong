@@ -1,5 +1,5 @@
 Summary:	A library for creating configuration dialogs
-Summary(pl):	Biblioteka do tworzenia dialogów konfiguracyjnych
+Summary(pl.UTF-8):   Biblioteka do tworzenia dialogÃ³w konfiguracyjnych
 Name:		pong
 Version:	1.0.2
 Release:	1
@@ -24,46 +24,46 @@ an XML description. The XML describes the widgets and the gconf keys
 to use, and PonG takes care of the rest. It can optionally use
 libglade and/or bonobo for the widgets as well.
 
-%description -l pl
-PonG to biblioteka i narzêdzie z graficznym interfejsem s³u¿±ce do
+%description -l pl.UTF-8
+PonG to biblioteka i narzÄ™dzie z graficznym interfejsem sÅ‚uÅ¼Ä…ce do
 tworzenia okienek dialogowych GNOME z opisu w XML. XML opisuje widgety
-i klucze gconf jakie maj± byæ u¿ywane, a PonG zajmuje siê ca³± reszt±.
-Opcjonalnie mo¿e u¿ywaæ tak¿e libglade i/lub bonobo do widgetów.
+i klucze gconf jakie majÄ… byÄ‡ uÅ¼ywane, a PonG zajmuje siÄ™ caÅ‚Ä… resztÄ….
+Opcjonalnie moÅ¼e uÅ¼ywaÄ‡ takÅ¼e libglade i/lub bonobo do widgetÃ³w.
 
 %package devel
 Summary:	PonG header files
-Summary(pl):	Pliki nag³ówkowe PonG
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe PonG
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 PonG developement files.
 
-%description devel -l pl
-Pliki nag³ówkowe PonG.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe PonG.
 
 %package static
 Summary:	Static PonG library
-Summary(pl):	Statyczna biblioteka PonG
+Summary(pl.UTF-8):   Statyczna biblioteka PonG
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static PonG library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka PonG.
 
 %package edit
 Summary:	Dialog box editor
-Summary(pl):	Edytor okien dialogowych
+Summary(pl.UTF-8):   Edytor okien dialogowych
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description edit
 Dialog box editor.
 
-%description edit -l pl
+%description edit -l pl.UTF-8
 Edytor okien dialogowych.
 
 %prep
