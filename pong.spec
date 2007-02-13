@@ -1,5 +1,5 @@
 Summary:	A library for creating configuration dialogs
-Summary(pl.UTF-8):   Biblioteka do tworzenia dialogów konfiguracyjnych
+Summary(pl.UTF-8):	Biblioteka do tworzenia dialogów konfiguracyjnych
 Name:		pong
 Version:	1.0.2
 Release:	1
@@ -32,7 +32,7 @@ Opcjonalnie może używać także libglade i/lub bonobo do widgetów.
 
 %package devel
 Summary:	PonG header files
-Summary(pl.UTF-8):   Pliki nagłówkowe PonG
+Summary(pl.UTF-8):	Pliki nagłówkowe PonG
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -44,7 +44,7 @@ Pliki nagłówkowe PonG.
 
 %package static
 Summary:	Static PonG library
-Summary(pl.UTF-8):   Statyczna biblioteka PonG
+Summary(pl.UTF-8):	Statyczna biblioteka PonG
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -56,7 +56,7 @@ Statyczna biblioteka PonG.
 
 %package edit
 Summary:	Dialog box editor
-Summary(pl.UTF-8):   Edytor okien dialogowych
+Summary(pl.UTF-8):	Edytor okien dialogowych
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
